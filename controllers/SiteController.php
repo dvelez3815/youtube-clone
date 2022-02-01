@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\SignupForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -125,4 +126,16 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    public function actionSignup(){
+        $model = new SignupForm();
+
+        if($model->load(Yii::$app->request->post()) && $model->signup()){
+            return $this->redirect(Yii::$app->homeUrl);
+        }
+        return $this->render('signup',[
+            'model' => $model
+        ]);
+    }
+
 }
