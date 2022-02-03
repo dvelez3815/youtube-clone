@@ -51,7 +51,10 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            ),
+             Yii::$app->user->isGuest ? (
+                ['label' => 'Signup', 'url' => ['/site/signup']]
+            ):''
         ],
     ]);
     NavBar::end();
