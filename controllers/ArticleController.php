@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Article;
 use app\models\ArticleSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -27,6 +28,17 @@ class ArticleController extends Controller
                         'delete' => ['POST'],
                     ],
                 ],
+                [
+                    'class' => AccessControl::class,
+                    'only' => ['create','update','delete'],
+                    'rules' =>[
+                    [
+                        'actions' => ['update','delete','create'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ]
+                    ]
+                ]
             ]
         );
     }
