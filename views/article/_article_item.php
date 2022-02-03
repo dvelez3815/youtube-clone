@@ -13,5 +13,8 @@
     <div>
         <?php echo \yii\helpers\StringHelper::truncateWords($model->getEncodeBody(),25 )?>
     </div>
+    <p class="text-muted text-right">
+        <small>Created At: <b><?php echo Yii::$app->formatter->asRelativeTime($model->created_at)?></b></small>
+    </p>
     <hr>
 </div>
