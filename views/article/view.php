@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?php if(!Yii::$app->user->isGuest) :?>
         <p>
-            <?= Html::a('Update', ['update', 'slug' => $model->slug], ['class' => 'btn btn-primary']) ?>
+            <<?= Html::a('Update', ['update', 'slug' => $model->slug], ['class' => 'btn btn-primary']) ?>
             <?= Html::a('Delete', ['delete', 'slug' => $model->slug], [
                 'class' => 'btn btn-danger',
                 'data' => [
@@ -37,5 +37,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <div>
         <?php echo $model->getEncodeBody() ?>
     </div>
+
 
 </div>
